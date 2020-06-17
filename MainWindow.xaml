@@ -68,8 +68,8 @@
 
 		<TextBlock  Text="Lottery Number Generator" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="Navy"/>
 
-        <!--NOTE: Triggers can be added to refelect the background colours, using KeyValuePair<int, string> specifying number & related colour in viewModel
-                   Not adding more time to add triggers 
+        <!--NOTE: Triggers can be added to refelect the background colours, using KeyValuePair<int, string> rather List<int> specifying number & related colour in viewModel
+                   No time to add triggers 
         -->
         
 		<StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 10">
