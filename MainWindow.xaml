@@ -5,13 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LotteryProgrammingChallenge"
         xmlns:VM ="clr-namespace:LotteryProgrammingChallenge.ViewModel"
+        xmlns:converters="clr-namespace:LotteryProgrammingChallenge.Converters"
         mc:Ignorable="d"
         Height="350" Width="500" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
     <Window.DataContext>
         <VM:LottoViewModel/>
     </Window.DataContext>
 	<Window.Resources>
-		<Style TargetType="{x:Type TextBox}" x:Key="lottoBox">
+        <converters:ColourConverter x:Key="colourConverter"/>
+        
+        <Style TargetType="{x:Type TextBox}" x:Key="lottoBox">
 			<Style.Resources>
 				<Style TargetType="{x:Type Border}">
 					<Setter Property="CornerRadius" Value="10"/>
@@ -73,12 +76,12 @@
         -->
         
 		<StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 10">
-            <TextBox Style="{StaticResource lottoBox}" Text="{Binding RandomNumbers[0]}"/>
-            <TextBox Style="{StaticResource lottoBox}" Text="{Binding RandomNumbers[1]}"/>
-            <TextBox Style="{StaticResource lottoBox}" Text="{Binding RandomNumbers[2]}"/>
-			<TextBox Style="{StaticResource lottoBox}" Text="{Binding RandomNumbers[3]}"/>
-			<TextBox Style="{StaticResource lottoBox}" Text="{Binding RandomNumbers[4]}"/>
-			<TextBox Style="{StaticResource lottoBox}" Text="{Binding RandomNumbers[5]}"/>
+            <TextBox Style="{StaticResource lottoBox}" Text="{Binding RandomNumbers[0]}" Background="{Binding RandomNumbers[0], Converter={StaticResource colourConverter}}"/>
+            <TextBox Style="{StaticResource lottoBox}" Text="{Binding RandomNumbers[1]}" Background="{Binding RandomNumbers[1], Converter={StaticResource colourConverter}}"/>
+            <TextBox Style="{StaticResource lottoBox}" Text="{Binding RandomNumbers[2]}" Background="{Binding RandomNumbers[2], Converter={StaticResource colourConverter}}"/>
+			<TextBox Style="{StaticResource lottoBox}" Text="{Binding RandomNumbers[3]}" Background="{Binding RandomNumbers[3], Converter={StaticResource colourConverter}}"/>
+			<TextBox Style="{StaticResource lottoBox}" Text="{Binding RandomNumbers[4]}" Background="{Binding RandomNumbers[4], Converter={StaticResource colourConverter}}"/>
+			<TextBox Style="{StaticResource lottoBox}" Text="{Binding RandomNumbers[5]}" Background="{Binding RandomNumbers[5], Converter={StaticResource colourConverter}}"/>
 
             <Button Style="{StaticResource HyperLinkButtonStyle}" Content="Generate Numbers" Margin="10 0" Command="{Binding GenerateNumbersCommand}"/>
         </StackPanel>
